@@ -16,10 +16,14 @@ namespace Musical_Chairs
     {
         public WaveOutEvent outputDevice;
         public AudioFileReader audioFile;
+        Color color;
         public Form1()
         {
             InitializeComponent();
-
+            if (Properties.Settings.Default.hasExistedBefore == true)
+            {
+                color = Properties.Settings.Default.color;
+            }
         }
         private void OnPlaybackStopped(object sender, StoppedEventArgs args)
         {
@@ -29,6 +33,7 @@ namespace Musical_Chairs
             audioFile = null;
         }
         bool change = true;
+
         private void label2_Click(object sender, EventArgs e)
         {
             if (outputDevice == null)
@@ -46,9 +51,10 @@ namespace Musical_Chairs
             }
             if (change==true)
             {
-                label2.BackColor = Color.FromArgb(20, 50, 200);
+                label2.BackColor = color;
                 change = false;
                 button1.Visible = false;
+                button2.Visible = false;
                 outputDevice.Play();
             }
             else
@@ -57,6 +63,7 @@ namespace Musical_Chairs
                 change = true;
                 outputDevice.Pause();
                 button1.Visible = true;
+                button2.Visible = true;
             }
         }
 
@@ -64,6 +71,22 @@ namespace Musical_Chairs
         {
             audioFile = null;
             outputDevice = null;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog()==DialogResult.OK)
+            {
+                //display(colorDialog1.Color.Name);
+                color = colorDialog1.Color;
+                Properties.Settings.Default.color = color;
+                Properties.Settings.Default.Save();
+            }
+
+        }
+        private void display(string text)
+        {
+            MessageBox.Show(text);
         }
     }
 }
