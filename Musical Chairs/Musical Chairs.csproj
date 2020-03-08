@@ -8,7 +8,7 @@
     <ProjectGuid>{067FD5E1-833D-4264-9889-A4BF376E5956}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Musical_Chairs</RootNamespace>
-    <AssemblyName>Musical Chairs</AssemblyName>
+    <AssemblyName>Scaunele Muzicale</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

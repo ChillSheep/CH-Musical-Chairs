@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Musical Chairs")]
-[assembly: AssemblyDescription("Musical Chairs, for all children including those with hearing problems")]
+[assembly: AssemblyTitle("Scaunele Muzicale")]
+[assembly: AssemblyDescription("Scaunele Muzicale")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("github.com/ChillSheep")]
-[assembly: AssemblyProduct("Musical Chairs")]
+[assembly: AssemblyProduct("Scaunele Muzicale")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]

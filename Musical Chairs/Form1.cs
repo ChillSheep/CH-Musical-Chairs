@@ -33,9 +33,34 @@ namespace Musical_Chairs
             audioFile = null;
         }
         bool change = true;
-
+        private void label1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                MessageBox.Show("ya pressed space");
+                if (change == true)
+                {
+                    label2.BackColor = color;
+                    change = false;
+                    button1.Visible = false;
+                    button2.Visible = false;
+                    outputDevice.Play();
+                }
+                else
+                {
+                    label2.BackColor = Color.FromArgb(0, 0, 0); ;
+                    change = true;
+                    outputDevice.Pause();
+                    button1.Visible = true;
+                    button2.Visible = true;
+                }
+            }
+        }
         private void label2_Click(object sender, EventArgs e)
         {
+            
+            
+            if (outputDevice == null)
             if (outputDevice == null)
             {
                 outputDevice = new WaveOutEvent();
@@ -47,7 +72,8 @@ namespace Musical_Chairs
                     audioFile = new AudioFileReader(@"song.mp3");
                     outputDevice.Init(audioFile);
                 }
-                catch { MessageBox.Show("You need to put the file song.mp3 in the software folder"); Application.Exit(); }
+                catch { MessageBox.Show("You need to put the file song.mp3 in the software folder"); return; }
+
             }
             if (change==true)
             {
@@ -55,6 +81,7 @@ namespace Musical_Chairs
                 change = false;
                 button1.Visible = false;
                 button2.Visible = false;
+                button3.Visible = false;
                 outputDevice.Play();
             }
             else
@@ -64,6 +91,7 @@ namespace Musical_Chairs
                 outputDevice.Pause();
                 button1.Visible = true;
                 button2.Visible = true;
+                button3.Visible = true;
             }
         }
 
@@ -79,6 +107,7 @@ namespace Musical_Chairs
             {
                 //display(colorDialog1.Color.Name);
                 color = colorDialog1.Color;
+                Properties.Settings.Default.hasExistedBefore = true;
                 Properties.Settings.Default.color = color;
                 Properties.Settings.Default.Save();
             }
@@ -87,6 +116,11 @@ namespace Musical_Chairs
         private void display(string text)
         {
             MessageBox.Show(text);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            label2_Click(sender, e);
         }
     }
 }
